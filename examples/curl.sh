@@ -7,7 +7,7 @@ BASE="https://imineralogist.org/api/v1"
 AUTH="X-API-Key: ${IMINERALOGIST_API_KEY:?set IMINERALOGIST_API_KEY first}"
 
 # Latest 5 observations
-curl -s "$BASE/observations?limit=5" -H "$AUTH" | head -c 2000; echo
+curl -s "$BASE/observations?limit=5" -H "$AUTH" | head -c 2000 || true; echo
 
 # Quartz observations observed in July 2026
 curl -s "$BASE/observations?mineral=quartz&observed_from=2026-07-01&observed_to=2026-07-31" -H "$AUTH"

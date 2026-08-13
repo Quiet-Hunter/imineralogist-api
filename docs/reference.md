@@ -4,8 +4,8 @@ Base URL: `https://imineralogist.org/api/v1` · Auth header: `X-API-Key: imin_�
 
 ## GET /observations
 
-Lists publicly visible observations (moderated, with at least one public
-photo). Default order: newest first.
+Lists publicly visible observations — each has at least one public photo, and
+anything rejected by moderation is excluded. Default order: newest first.
 
 ### Query parameters
 
@@ -14,13 +14,13 @@ photo). Default order: newest first.
 | `bbox` | `west,south,east,north` | WGS84 degrees. Filters on the observation's **public** coordinates. Example: `13.0,45.0,17.0,49.0`. |
 | `observed_from` / `observed_to` | `YYYY-MM-DD` | Inclusive range on the field observation date (UTC). |
 | `created_from` / `created_to` | `YYYY-MM-DD` | Inclusive range on the publication date (UTC). |
-| `user` | string | Public user id (as in `https://imineralogist.org/users/{id}`). |
-| `mineral` | string | Case-insensitive substring match against the community consensus name and all identification candidates. `mineral=fluor` matches Fluorite. |
-| `mindat_id` | integer | Exact match on the mindat.org id of the consensus or any identification. |
-| `q` | string | Substring search in title and notes. |
+| `user` | string ≤128 chars | Public user id (as in `https://imineralogist.org/users/{id}`). |
+| `mineral` | string ≤240 chars | Case-insensitive substring match against the community consensus name and all identification candidates. `mineral=fluor` matches Fluorite. |
+| `mindat_id` | integer ≥1 | Exact match on the mindat.org id of the consensus or any identification. |
+| `q` | string ≤240 chars | Substring search in title and notes. |
 | `sort` | `newest` (default) \| `oldest` | Order by publication date. |
 | `limit` | 1–100, default 20 | Page size. |
-| `cursor` | string | Opaque pagination cursor from `next_cursor`. Pass the same filters with every page. |
+| `cursor` | string ≤400 chars | Opaque pagination cursor from `next_cursor`. Pass the same filters with every page. |
 
 ### Response
 
@@ -72,7 +72,8 @@ Field notes:
   radius; for open records `precision_m` is the reported GPS accuracy (may
   be `null`). `label` is `null` for obscured records.
 - `identifications[].source` is `ai` (suggested by our identification
-  assistant) or `user` (added by a person). `community_consensus` is the
+  assistant) or `user` (added by a person). `identifications[].kind` is
+  `mineral`, `formation`, or `fossil`. `community_consensus` is the
   name the community currently agrees on, when there is one.
 - `next_cursor` is `null` on the last page.
 
@@ -111,7 +112,7 @@ X-RateLimit-Remaining-Day: 4991
 `{"error": {"code": string, "message": string}}` — codes:
 `missing_api_key`, `invalid_api_key` (401); `invalid_parameter` (400);
 `not_found` (404); `rate_limited`, `daily_quota_exceeded` (429);
-`public_api_disabled` (503).
+`public_api_disabled` (503); `request_failed` (other 4xx/5xx errors).
 
 ## Versioning
 

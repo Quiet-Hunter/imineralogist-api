@@ -1,5 +1,7 @@
 """Fetch recent iMineralogist observations for a mineral and save them as CSV.
 
+Requires Python 3.10+
+
 Usage:
     export IMINERALOGIST_API_KEY=imin_your_key_here
     python fetch_observations.py --mineral quartz --limit 100 --out quartz.csv

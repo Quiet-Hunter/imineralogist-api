@@ -1,4 +1,5 @@
 // Fetch observations inside a bounding box and print a summary.
+// Requires Node 18+ (global fetch)
 // Usage: IMINERALOGIST_API_KEY=imin_... node fetchObservations.mjs
 
 const BASE_URL = "https://imineralogist.org/api/v1";
