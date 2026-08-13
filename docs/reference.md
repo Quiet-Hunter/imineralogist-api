@@ -112,7 +112,8 @@ X-RateLimit-Remaining-Day: 4991
 `{"error": {"code": string, "message": string}}` — codes:
 `missing_api_key`, `invalid_api_key` (401); `invalid_parameter` (400);
 `not_found` (404); `rate_limited`, `daily_quota_exceeded` (429);
-`public_api_disabled` (503); `request_failed` (other 4xx/5xx errors).
+`public_api_disabled` (503); `internal_error` (500, unexpected server error);
+`request_failed` (other 4xx/5xx errors).
 
 ## Versioning
 
