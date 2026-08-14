@@ -36,7 +36,17 @@ for observation in response.json()["data"]:
     print(observation["title"], observation["web_url"])
 ```
 
-Runnable examples live in [`examples/`](examples/): Python, Node.js, curl.
+Runnable, commented examples live in [`examples/`](examples/):
+
+- [`curl.sh`](examples/curl.sh) — every query parameter, pagination, rate
+  limits, and the error envelope
+- [`python/`](examples/python/) — export filtered observations to CSV;
+  fetch a single observation with error handling
+- [`javascript/`](examples/javascript/) — minimal fetch; full cursor
+  pagination with `Retry-After` handling (Node 18+)
+- [`r/`](examples/r/) — observations as a data frame + CSV (httr/jsonlite)
+- [`go/`](examples/go/) — typed structs and pagination, stdlib only
+
 The full endpoint reference is in [`docs/reference.md`](docs/reference.md).
 
 ## Endpoints

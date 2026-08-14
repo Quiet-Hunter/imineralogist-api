@@ -1,5 +1,11 @@
 # Changelog
 
+## Docs — 2026-08-14
+
+- Expanded examples: every `GET /observations` parameter in `curl.sh`,
+  single-observation fetch in Python, cursor pagination with rate-limit
+  handling in JavaScript, and new R and Go examples. No API changes.
+
 ## v1 — 2026-08
 
 Initial public release.
