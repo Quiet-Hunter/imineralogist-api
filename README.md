@@ -12,10 +12,11 @@ and research.
 ## Getting a key
 
 1. Sign in at [imineralogist.org](https://imineralogist.org) (free account).
-2. Open your **profile** and find the **API access** card.
+2. Open your **profile**, then **Settings → API access**.
 3. Tell us what you're building and submit the request.
-4. Requests are reviewed manually. Once approved, your key appears in your
-   profile. Details: [imineralogist.org/developers](https://imineralogist.org/developers).
+4. Requests are reviewed manually. Once approved, your key appears in
+   **Settings → API access**. Details:
+   [imineralogist.org/developers](https://imineralogist.org/developers).
 
 ## Quickstart
 
