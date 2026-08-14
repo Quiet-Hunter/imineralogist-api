@@ -46,6 +46,8 @@ Runnable, commented examples live in [`examples/`](examples/):
   pagination with `Retry-After` handling (Node 18+)
 - [`r/`](examples/r/) — observations as a data frame + CSV (httr/jsonlite)
 - [`go/`](examples/go/) — typed structs and pagination, stdlib only
+- [`rust/`](examples/rust/) — typed structs via serde, reqwest blocking client
+- [`cpp/`](examples/cpp/) — libcurl + nlohmann/json, C++17
 
 The full endpoint reference is in [`docs/reference.md`](docs/reference.md).
 

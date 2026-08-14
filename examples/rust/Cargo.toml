@@ -1,0 +1,9 @@
+[package]
+name = "fetch_observations"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# blocking: simple synchronous client, no async runtime needed for a script
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+serde = { version = "1", features = ["derive"] }
